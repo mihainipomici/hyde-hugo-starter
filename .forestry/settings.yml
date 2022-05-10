@@ -4,6 +4,13 @@ auto_deploy: false
 admin_path: 
 webhook_url: 
 sections:
+- type: document
+  path: about
+  label: About us
+  match: "**/*"
+  read_only: false
+- type: heading
+  label: About us
 - type: directory
   path: content/posts
   label: Posts
@@ -13,7 +20,7 @@ sections:
   path: content
   label: Pages
   create: all
-  match: "*.md"
+  match: about.md
 - type: heading
   label: Documentation
 - type: document
@@ -32,7 +39,7 @@ file_template: ":filename:"
 build:
   preview_env:
   - HUGO_ENV=staging
-  - HUGO_VERSION=0.49
+  - HUGO_VERSION=0.98.0
   preview_output_directory: public
   preview_docker_image: forestryio/hugo:latest
   mount_path: "/srv"
